@@ -11,7 +11,7 @@ int main(int ac, char *av[])
 	char *content;
 	FILE *file;
 	size_t size = 0;
-	size_t read_line = 1;
+	ssize_t read_line = 1;
 	stack_t *stack = NULL;
 	unsigned int count = 0;
 
@@ -24,7 +24,7 @@ int main(int ac, char *av[])
 	bus.file = file;
 	if (!file)
 	{
-		fprintf(stderr, "Error: Can't open file <file>\n");
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (read_line > 0)
@@ -35,12 +35,11 @@ int main(int ac, char *av[])
 		count++;
 		if (read_line > 0)
 		{
-			_execute(content, &stack, count, file);
+			execute(content, &stack, count, file);
 		}
 		free(content);
 	}
 	free_stack(stack);
 	fclose(file);
-
-	return (0);
+return (0);
 }

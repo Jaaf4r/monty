@@ -1,6 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 #define _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -16,13 +17,13 @@
  * @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO
+ * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct stack_s
 {
-		int n;
-		struct stack_s *prev;
-		struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -31,12 +32,12 @@ typedef struct stack_s
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
- * for stack, queues, LIFO, FIFO
+ * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct instruction_s
 {
-		char *opcode;
-		void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
@@ -55,15 +56,16 @@ typedef struct bus_s
 	int lifi;
 }  bus_t;
 extern bus_t bus;
-void pushOpcode(stack_t **head, unsigned int count);
-void pallOpcode(stack_t **head, unsigned int count);
-void _pint(stack_t **head, unsigned int count);
-int _execute(char *content, stack_t **stack, unsigned int count, FILE *file);
+
+void _push(stack_t **head, unsigned int number);
+void _pall(stack_t **head, unsigned int number);
+void _pint(stack_t **head, unsigned int number);
+int _execute(char *content, stack_t **head, unsigned int counter, FILE *file);
 void free_stack(stack_t *head);
-void _pop(stack_t **head, unsigned int count);
-void _swap(stack_t **head, unsigned int count);
-void _add(stack_t **head, unsigned int count);
-void _nop(stack_t **head, unsigned int count);
+void _pop(stack_t **head, unsigned int counter);
+void _swap(stack_t **head, unsigned int counter);
+void _add(stack_t **head, unsigned int counter);
+void _nop(stack_t **head, unsigned int counter);
 void addnode(stack_t **head, int n);
 void addqueue(stack_t **head, int n);
 
