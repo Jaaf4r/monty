@@ -1,5 +1,5 @@
 #include "monty.h"
-bus_t bus = {NULL, NULL, NULL, 0};
+
 /**
 * main - monty code interpreter
 * @ac: number of arguments
@@ -8,6 +8,7 @@ bus_t bus = {NULL, NULL, NULL, 0};
 */
 int main(int ac, char *av[])
 {
+	bus_t bus = {NULL, NULL, NULL, 0};
 	char *content;
 	FILE *file;
 	size_t size = 0;
